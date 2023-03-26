@@ -11,9 +11,9 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="notification-core" target="17" />
-      <module name="notification-exposer" target="17" />
-      <module name="notification-service" target="17" />
+      <module name="notification-core" target="11" />
+      <module name="notification-exposer" target="11" />
+      <module name="notification-service" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
