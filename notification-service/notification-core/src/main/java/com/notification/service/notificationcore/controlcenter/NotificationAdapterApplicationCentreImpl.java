@@ -1,17 +1,17 @@
 package com.notification.service.notificationcore.controlcenter;
 
 import com.notification.service.notificationcore.pool.IExecutorServicePool;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Service(value = "notificationAdapterApplicationCentreImpl")
-public class NotificationAdapterApplicationCentreImpl implements IApplicationCenter{
-    private static final Logger LOGGER= LoggerFactory.getLogger(NotificationAdapterApplicationCentreImpl.class);
+public class NotificationAdapterApplicationCentreImpl implements IApplicationCenter {
+//    private static final Logger LOGGER= LoggerFactory.getLogger(NotificationAdapterApplicationCentreImpl.class);
 
     @Autowired
     @Qualifier("notificationAdapterExecutorServicePoolImpl")
@@ -19,28 +19,37 @@ public class NotificationAdapterApplicationCentreImpl implements IApplicationCen
 
     private static final AtomicBoolean stopped=new AtomicBoolean(false);
 
+    private static final AtomicInteger poolCounter=new AtomicInteger(1);
+
     @Override
     public boolean stopService() {
-        return false;
+        stopped.set(true);
+        try{
+            executorServicePool.shutDown();
+        }catch (final Exception ex){
+//            LOGGER.error("error in stopping service : ",ex);
+            return false;
+        }
+        return stopped.get();
     }
 
     @Override
     public boolean isStopped() {
-        return false;
+        return stopped.get();
     }
 
     @Override
     public int getRequestCount() {
-        return 0;
+        return poolCounter.get();
     }
 
     @Override
     public int incrementRequestCountAndGet() {
-        return 0;
+        return poolCounter.incrementAndGet();
     }
 
     @Override
     public int decrementRequestCountAndGet() {
-        return 0;
+        return poolCounter.decrementAndGet();
     }
 }

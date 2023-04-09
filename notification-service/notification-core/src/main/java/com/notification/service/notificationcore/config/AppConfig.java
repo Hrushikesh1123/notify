@@ -1,14 +1,12 @@
 package com.notification.service.notificationcore.config;
 
-import com.kafka.api.integrate.kafkatoAPI.controlcenter.NotificationAdapterApplicationCentreImpl;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    private static final Logger LOGGER= LoggerFactory.getLogger(NotificationAdapterApplicationCentreImpl.class);
+
+//    private static final Logger LOGGER= LoggerFactory.getLogger(AppConfig.class);
 
     @Value("${min.pool.size}")
     private int minPoolSize;

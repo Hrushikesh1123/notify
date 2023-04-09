@@ -10,41 +10,47 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.notification.service </groupId>
+    <groupId>com.notification.service</groupId>
     <artifactId>notification-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>notification-service</name>
     <description>Describes Notification Service for email sms and watsapp</description>
     <packaging>pom</packaging>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
     </properties>
     <modules>
         <module>notification-core</module>
         <module>notification-exposer</module>
-        <module>common</module>
     </modules>
     <dependencies>
         <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-        </dependency>
+
 
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.springframework.boot</groupId>-->
+<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
+<!--    <profiles>-->
+<!--        <profile>-->
+<!--            <id>all</id>-->
+<!--            <activation>-->
+<!--                <activeByDefault>true</activeByDefault>-->
+<!--            </activation>-->
+<!--            <modules>-->
+<!--                mo-->
+<!--            </modules>-->
+<!--        </profile>-->
+<!--    </profiles>-->
 
 
 </project>
